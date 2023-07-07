@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1av4nom7r44h"]
+[gd_scene load_steps=10 format=3 uid="uid://c1av4nom7r44h"]
 
+[ext_resource type="Script" path="res://Dragon/DragonHead.gd" id="1_qno8i"]
 [ext_resource type="Texture2D" uid="uid://cj55603cwqcl4" path="res://Dragon/FirePart.png" id="1_qo04v"]
 [ext_resource type="Texture2D" uid="uid://gn3hb46ba70o" path="res://Dragon/dragonParts.png" id="2_fls4p"]
 
@@ -37,8 +38,12 @@ angle_min = -180.0
 angle_max = 180.0
 scale_curve = SubResource("CurveTexture_hu2bg")
 color_ramp = SubResource("GradientTexture1D_xarpe")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [node name="DragonHead" type="Node2D"]
+script = ExtResource("1_qno8i")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_fx6ud")
@@ -49,7 +54,8 @@ process_material = SubResource("ParticleProcessMaterial_gn1ux")
 texture = ExtResource("1_qo04v")
 lifetime = 0.8
 fixed_fps = 60
-visibility_rect = Rect2(-350, -650, 700, 700)
+collision_base_size = 0.0
+visibility_rect = Rect2(-350, -700, 700, 750)
 
 [node name="DragonParts" type="Sprite2D" parent="."]
 texture = ExtResource("2_fls4p")
@@ -57,7 +63,8 @@ region_enabled = true
 region_rect = Rect2(273, 204, 76, 105)
 
 [node name="FireArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FireArea"]
 polygon = PackedVector2Array(0, -30, 240, -450, 0, -520, -240, -450)
+
+[connection signal="fire" from="." to="GPUParticles2D" method="set_emitting"]

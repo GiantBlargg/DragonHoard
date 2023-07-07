@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://df47tasppgtwm"]
+[gd_scene load_steps=5 format=3 uid="uid://df47tasppgtwm"]
 
 [ext_resource type="Script" path="res://Dragon/DragonBody.gd" id="1_fchby"]
 [ext_resource type="Texture2D" uid="uid://gn3hb46ba70o" path="res://Dragon/dragonParts.png" id="2_vgwjv"]
+[ext_resource type="PackedScene" uid="uid://c1av4nom7r44h" path="res://Dragon/DragonHead.tscn" id="3_ph38i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mi6pf"]
 radius = 117.273
 
-[node name="DragonBody" type="CharacterBody2D" node_paths=PackedStringArray("visual")]
+[node name="DragonBody" type="CharacterBody2D"]
 script = ExtResource("1_fchby")
 turn_speed = 4.0
 forward_limit = 0.349066
-visual = NodePath("DragonParts")
 
 [node name="DragonParts" type="Sprite2D" parent="."]
 position = Vector2(0, 53)
@@ -20,3 +20,6 @@ region_rect = Rect2(15, 73, 236, 512)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mi6pf")
+
+[node name="DragonHead" parent="." instance=ExtResource("3_ph38i")]
+position = Vector2(3, -170)
