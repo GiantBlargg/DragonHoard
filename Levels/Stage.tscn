@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlhu5q44kndii"]
+
+[ext_resource type="Texture2D" uid="uid://d0de3ld66de72" path="res://Stage/Stage.png" id="1_r0l63"]
+[ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_atyay"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qhkmg"]
+polygon = PackedVector2Array(-1109, -244, -1016, -271, -987, -335, -977, -477, -974, -669, -940, -787, -862, -867, -772, -914, -609, -932, -468, -958, -366, -976, -247, -979, -213, -1014, -193, -1103, -1110, -1103)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ihwf6"]
+polygon = PackedVector2Array(214, -1103, 235, -992, 267, -962, 315, -951, 540, -962, 601, -941, 634, -903, 766, -830, 857, -761, 907, -689, 921, -516, 953, -376, 950, -278, 973, -205, 1016, -176, 1101, -160, 1105, -1106)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ln34"]
+polygon = PackedVector2Array(-230, 1102, -257, 1029, -322, 998, -551, 992, -694, 998, -795, 985, -859, 912, -919, 771, -923, 578, -953, 462, -996, 350, -1009, 236, -1034, 198, -1104, 184, -1103, 1103)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m86o4"]
+polygon = PackedVector2Array(274, 1104, 287, 1057, 303, 1035, 342, 1023, 598, 997, 776, 1018, 860, 1005, 912, 924, 941, 830, 963, 749, 976, 536, 967, 439, 979, 318, 977, 254, 1005, 205, 1035, 177, 1097, 159, 1105, 1102)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="TopLeftWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1109, -244, -1016, -271, -987, -335, -977, -477, -974, -669, -940, -787, -862, -867, -772, -914, -609, -932, -468, -958, -366, -976, -247, -979, -213, -1014, -193, -1103, -1110, -1103)
+
+[node name="TopRightWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(214, -1103, 235, -992, 267, -962, 315, -951, 540, -962, 601, -941, 634, -903, 766, -830, 857, -761, 907, -689, 921, -516, 953, -376, 950, -278, 973, -205, 1016, -176, 1101, -160, 1105, -1106)
+
+[node name="BottomLeftWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-230, 1102, -257, 1029, -322, 998, -551, 992, -694, 998, -795, 985, -859, 912, -919, 771, -923, 578, -953, 462, -996, 350, -1009, 236, -1034, 198, -1104, 184, -1103, 1103)
+
+[node name="BottomRightWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(274, 1104, 287, 1057, 303, 1035, 342, 1023, 598, 997, 776, 1018, 860, 1005, 912, 924, 941, 830, 963, 749, 976, 536, 967, 439, 979, 318, 977, 254, 1005, 205, 1035, 177, 1097, 159, 1105, 1102)
+
+[node name="TopLeftWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_qhkmg")
+
+[node name="TopRightLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_ihwf6")
+
+[node name="BottomLeftLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_5ln34")
+
+[node name="BottomRightLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_m86o4")
+
+[node name="Stage" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_r0l63")
+
+[node name="DragonBody" parent="." instance=ExtResource("2_atyay")]
+position = Vector2(-5, 13)
