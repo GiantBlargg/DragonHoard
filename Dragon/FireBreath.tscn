@@ -45,3 +45,4 @@ process_material = SubResource("ParticleProcessMaterial_gn1ux")
 texture = ExtResource("1_bkl1n")
 lifetime = 1.5
 fixed_fps = 60
+visibility_rect = Rect2(-100, -1150, 2500, 2300)
