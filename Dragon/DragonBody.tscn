@@ -1,17 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://df47tasppgtwm"]
 
 [ext_resource type="Script" path="res://Dragon/DragonBody.gd" id="1_fchby"]
-[ext_resource type="Texture2D" uid="uid://uklqto37bjb5" path="res://icon.svg" id="1_wlm66"]
+[ext_resource type="Texture2D" uid="uid://gn3hb46ba70o" path="res://Dragon/dragonParts.png" id="2_vgwjv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mi6pf"]
-radius = 73.0
+radius = 117.273
 
 [node name="DragonBody" type="CharacterBody2D" node_paths=PackedStringArray("visual")]
 script = ExtResource("1_fchby")
-visual = NodePath("Icon")
+turn_speed = 4.0
+forward_limit = 0.349066
+visual = NodePath("DragonParts")
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_wlm66")
+[node name="DragonParts" type="Sprite2D" parent="."]
+position = Vector2(0, 53)
+texture = ExtResource("2_vgwjv")
+region_enabled = true
+region_rect = Rect2(15, 73, 236, 512)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mi6pf")
