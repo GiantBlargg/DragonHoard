@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Dragon/DragonBody.gd" id="1_fchby"]
 [ext_resource type="Texture2D" uid="uid://gn3hb46ba70o" path="res://Dragon/dragonParts.png" id="2_vgwjv"]
-[ext_resource type="PackedScene" uid="uid://c1av4nom7r44h" path="res://Dragon/DragonHead.tscn" id="3_ph38i"]
+[ext_resource type="PackedScene" uid="uid://dgi8kqqh3ldie" path="res://Dragon/DragonHead.tscn" id="3_ph38i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mi6pf"]
 radius = 117.273
@@ -23,3 +23,5 @@ shape = SubResource("CircleShape2D_mi6pf")
 
 [node name="DragonHead" parent="." instance=ExtResource("3_ph38i")]
 position = Vector2(3, -170)
+
+[node name="Camera2D" type="Camera2D" parent="."]
