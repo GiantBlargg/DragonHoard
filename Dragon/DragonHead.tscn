@@ -55,7 +55,7 @@ texture = ExtResource("1_qo04v")
 lifetime = 0.8
 fixed_fps = 60
 collision_base_size = 0.0
-visibility_rect = Rect2(-350, -700, 700, 750)
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
 [node name="DragonParts" type="Sprite2D" parent="."]
 texture = ExtResource("2_fls4p")
