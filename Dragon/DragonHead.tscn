@@ -65,6 +65,8 @@ region_enabled = true
 region_rect = Rect2(273, 204, 76, 105)
 
 [node name="FireArea" type="Area2D" parent="DragonHead"]
+collision_layer = 16
+collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DragonHead/FireArea"]
 polygon = PackedVector2Array(0, -30, 240, -450, 0, -520, -240, -450)
