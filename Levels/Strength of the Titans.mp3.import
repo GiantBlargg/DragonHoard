@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4e5lejl6shwu"
+path="res://.godot/imported/Strength of the Titans.mp3-e1c50f6838dfe8e484d5bbb60abfcf7b.mp3str"
+
+[deps]
+
+source_file="res://Levels/Strength of the Titans.mp3"
+dest_files=["res://.godot/imported/Strength of the Titans.mp3-e1c50f6838dfe8e484d5bbb60abfcf7b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
