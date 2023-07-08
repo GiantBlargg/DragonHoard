@@ -77,7 +77,7 @@ y_sort_enabled = true
 collision_layer = 8
 collision_mask = 13
 script = ExtResource("1_yy4i1")
-wait_time = 0.1
+wait_time = 0.7
 jump_time = 0.2
 jump_distance = 100.0
 
