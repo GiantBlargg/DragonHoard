@@ -6,6 +6,7 @@ signal timing(wait:float,jump:float,start:float)
 @export var wait_time: float = 1
 @export var jump_time: float = 1
 @export var jump_distance: float = 300
+@export var health: float = 100
 
 var timer: float = 0
 var dir: Vector2 = Vector2(0,0)
@@ -29,6 +30,11 @@ func _physics_process(delta):
 		velocity = dir * (jump_distance / jump_time)
 	
 	move_and_slide()
+	
+func fire_damage(amount:float):
+	health -= amount
+	if health <= 0:
+		queue_free()
 
 func get_direction():
 	if player == null:
