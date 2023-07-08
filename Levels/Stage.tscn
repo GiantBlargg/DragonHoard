@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dlhu5q44kndii"]
 
-[ext_resource type="Texture2D" uid="uid://d0de3ld66de72" path="res://Stage/Stage.png" id="1_r0l63"]
+[ext_resource type="Texture2D" uid="uid://d0de3ld66de72" path="res://Levels/Stage.png" id="1_r0l63"]
 [ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_atyay"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qhkmg"]
@@ -48,3 +48,6 @@ texture = ExtResource("1_r0l63")
 
 [node name="DragonBody" parent="." instance=ExtResource("2_atyay")]
 position = Vector2(-5, 13)
+
+[node name="Camera2D" type="Camera2D" parent="DragonBody"]
+limit_left = 10

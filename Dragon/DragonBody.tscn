@@ -23,5 +23,3 @@ shape = SubResource("CircleShape2D_mi6pf")
 
 [node name="DragonHead" parent="." instance=ExtResource("3_ph38i")]
 position = Vector2(3, -170)
-
-[node name="Camera2D" type="Camera2D" parent="."]
