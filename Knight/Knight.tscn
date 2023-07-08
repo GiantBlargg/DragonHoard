@@ -71,7 +71,7 @@ _data = {
 radius = 37.0
 height = 148.0
 
-[node name="Knight" type="CharacterBody2D"]
+[node name="Knight" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
 z_index = 2
 y_sort_enabled = true
 collision_layer = 8
@@ -80,6 +80,7 @@ script = ExtResource("1_yy4i1")
 wait_time = 0.1
 jump_time = 0.2
 jump_distance = 100.0
+anim = NodePath("Visual/AnimationPlayer")
 
 [node name="Visual" type="Node2D" parent="."]
 script = ExtResource("1_7l0md")
