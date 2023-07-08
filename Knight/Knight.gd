@@ -11,7 +11,7 @@ signal timing(wait:float,jump:float,start:float)
 var timer: float = 0
 var dir: Vector2 = Vector2(0,0)
 
-@onready var anim: AnimationPlayer = get_node("Visual/AnimationPlayer")
+@export var anim: AnimationPlayer
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Dragon")
 
 func _ready():

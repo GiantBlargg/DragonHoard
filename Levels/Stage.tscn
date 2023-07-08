@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlhu5q44kndii"]
+[gd_scene load_steps=13 format=3 uid="uid://dlhu5q44kndii"]
 
 [ext_resource type="Texture2D" uid="uid://d0de3ld66de72" path="res://Levels/Stage.png" id="1_r0l63"]
 [ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_atyay"]
 [ext_resource type="PackedScene" uid="uid://bofd4vplky8hj" path="res://Knight/Knight.tscn" id="3_22ise"]
+[ext_resource type="PackedScene" uid="uid://b3tknc376el6t" path="res://Knight/Slime.tscn" id="4_nkmbs"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qhkmg"]
 polygon = PackedVector2Array(-1109, -244, -1016, -271, -987, -335, -977, -477, -974, -669, -940, -787, -862, -867, -772, -914, -609, -932, -468, -958, -366, -976, -247, -979, -213, -1014, -193, -1103, -1110, -1103)
@@ -134,3 +135,9 @@ position = Vector2(45, -1226)
 
 [node name="Knight16" parent="." instance=ExtResource("3_22ise")]
 position = Vector2(153, -1218)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_nkmbs")]
+position = Vector2(-613, -677)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("4_nkmbs")]
+position = Vector2(608, -722)
