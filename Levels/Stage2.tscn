@@ -98,7 +98,7 @@ polygon = PackedVector2Array(1330, 862, 1323, 796, 1313, 760, 1288, 714, 1259, 6
 occluder = SubResource("OccluderPolygon2D_c06cw")
 
 [node name="DragonBody" parent="." instance=ExtResource("2_1brl2")]
-position = Vector2(-127, -113)
+position = Vector2(-254, -181)
 
 [node name="Camera2D" type="Camera2D" parent="DragonBody"]
 limit_left = -2000
