@@ -9,12 +9,12 @@ const RIGHT = PI / 2
 const DOWN = PI
 const LEFT = 3 * PI / 2
 
-func set_angle(angle:float):
-	angle = fposmod(angle, TAU)
+func set_direction(dir:Vector2):
 	
 	# TODO: Shield
 	
-	UR.visible = angle < RIGHT
-	DR.visible = angle >= RIGHT && angle < DOWN
-	DL.visible = angle >= DOWN && angle < LEFT
-	UL.visible = angle >= LEFT
+	DR.visible = dir.x >= 0 && dir.y >= 0
+	UR.visible = dir.x >= 0 && dir.y < 0
+	DL.visible = dir.x < 0 && dir.y >= 0
+	UL.visible = dir.x < 0 && dir.y < 0
+
