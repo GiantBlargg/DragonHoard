@@ -18,10 +18,15 @@ var is_dead: bool = false
 var is_flung: bool = false
 
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Dragon")
+@onready var nav_agent: NavigationAgent2D = NavigationAgent2D.new()
 
 func _ready():
 	timer = randf() * (wait_time + jump_time)
 	timing.emit(wait_time, jump_time, timer)
+	add_child(nav_agent)
+	nav_agent.path_desired_distance = 30
+	nav_agent.target_desired_distance = 30
+	nav_agent.radius = 30
 
 func _physics_process(delta):
 	if is_dead:
@@ -75,6 +80,10 @@ func get_direction():
 	if player == null:
 		return
 	
-	dir = (player.position - position).limit_length()
+	nav_agent.target_position = player.position
+	
+	dir = (nav_agent.get_next_path_position() - position).normalized()
+	if dir.is_zero_approx():
+		dir = (player.position - position).normalized()
 	
 	direction.emit(dir)

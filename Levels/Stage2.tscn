@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3ymgk347dyqy"]
+[gd_scene load_steps=18 format=3 uid="uid://d3ymgk347dyqy"]
 
 [ext_resource type="Texture2D" uid="uid://cxcdiuucu8n15" path="res://Levels/Stage2.png" id="1_30s64"]
 [ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_1brl2"]
 [ext_resource type="AudioStream" uid="uid://4e5lejl6shwu" path="res://Levels/Strength of the Titans.mp3" id="3_na0vs"]
+[ext_resource type="PackedScene" uid="uid://bofd4vplky8hj" path="res://Knight/Knight.tscn" id="4_mc5q6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_odq3i"]
 polygon = PackedVector2Array(-2007, -724, -1882, -749, -1816, -800, -1797, -902, -1792, -1022, -1792, -1101, -1769, -1165, -1730, -1206, -1659, -1263, -1410, -1312, -1301, -1305, -1162, -1312, -1062, -1321, -974, -1322, -729, -1282, -670, -1284, -608, -1270, -370, -1281, -263, -1301, -196, -1330, -165, -1374, -153, -1437, -151, -1506, -2006, -1503)
@@ -133,3 +134,6 @@ shape = SubResource("WorldBoundaryShape2D_hknsi")
 stream = ExtResource("3_na0vs")
 volume_db = -5.0
 autoplay = true
+
+[node name="Knight" parent="." instance=ExtResource("4_mc5q6")]
+position = Vector2(584, 373)
