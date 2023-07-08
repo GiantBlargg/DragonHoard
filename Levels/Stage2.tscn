@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3ymgk347dyqy"]
+[gd_scene load_steps=17 format=3 uid="uid://d3ymgk347dyqy"]
 
 [ext_resource type="Texture2D" uid="uid://cxcdiuucu8n15" path="res://Levels/Stage2.png" id="1_30s64"]
 [ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_1brl2"]
@@ -27,6 +27,11 @@ polygon = PackedVector2Array(-612, 476, -583, 411, -505, 362, -435, 342, -317, 3
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c06cw"]
 polygon = PackedVector2Array(1330, 862, 1323, 796, 1313, 760, 1288, 714, 1259, 681, 1201, 625, 1132, 591, 1094, 591, 1057, 606, 1033, 628, 1023, 666, 1026, 709, 1040, 763, 1082, 837, 1138, 888, 1219, 930, 1270, 938, 1299, 929, 1321, 904)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gmsjl"]
+vertices = PackedVector2Array(-2251, -1804, 2224, -1804, 2224, 1759, -2216, 1759)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2251, -1804, 2224, -1804, 2224, 1759, -2216, 1759)])
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4f2wl"]
 distance = -1500.0
@@ -97,6 +102,18 @@ polygon = PackedVector2Array(1330, 862, 1323, 796, 1313, 760, 1288, 714, 1259, 6
 
 [node name="BCWallLight" type="LightOccluder2D" parent="StaticBody2D"]
 occluder = SubResource("OccluderPolygon2D_c06cw")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="StaticBody2D"]
+navigation_polygon = SubResource("NavigationPolygon_gmsjl")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D"]
+vertices = PackedVector2Array(-261, -1027, -292, -1016, -325, -984, -345, -942, -353, -878, -356, -805, -333, -728, -300, -679, -265, -653, -228, -651, -199, -665, -149, -764, -143, -826, -153, -884, -174, -947, -202, -993, -232, -1018)
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="StaticBody2D"]
+vertices = PackedVector2Array(-612, 476, -583, 411, -505, 362, -435, 342, -317, 304, -209, 258, -148, 214, -110, 169, 6, 67, 43, 36, 121, -15, 175, -60, 227, -130, 303, -360, 339, -449, 431, -530, 504, -565, 593, -589, 655, -591, 700, -570, 718, -535, 704, -475, 566, -315, 551, -280, 518, -58, 488, 7, 434, 92, 332, 179, 186, 271, 52, 350, -113, 486, -244, 562, -426, 612, -503, 609, -582, 570, -605, 535)
+
+[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="StaticBody2D"]
+vertices = PackedVector2Array(1330, 862, 1323, 796, 1313, 760, 1288, 714, 1259, 681, 1201, 625, 1132, 591, 1094, 591, 1057, 606, 1033, 628, 1023, 666, 1026, 709, 1040, 763, 1082, 837, 1138, 888, 1219, 930, 1270, 938, 1299, 929, 1321, 904)
 
 [node name="DragonBody" parent="." instance=ExtResource("2_1brl2")]
 position = Vector2(-254, -181)
