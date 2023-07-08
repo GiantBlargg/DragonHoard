@@ -63,7 +63,6 @@ texture = ExtResource("1_r0l63")
 
 [node name="DragonBody" parent="." instance=ExtResource("2_atyay")]
 position = Vector2(-5, 13)
-collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="DragonBody"]
 limit_left = -1100
