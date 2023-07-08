@@ -136,4 +136,4 @@ volume_db = -5.0
 autoplay = true
 
 [node name="Knight" parent="." instance=ExtResource("4_mc5q6")]
-position = Vector2(584, 373)
+position = Vector2(625, 160)

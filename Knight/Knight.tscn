@@ -67,9 +67,8 @@ _data = {
 "RESET": SubResource("Animation_eax5u")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb5an"]
-radius = 37.0
-height = 148.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_jexue"]
+radius = 40.0
 
 [node name="Knight" type="CharacterBody2D"]
 z_index = 2
@@ -85,13 +84,13 @@ jump_distance = 100.0
 script = ExtResource("1_7l0md")
 
 [node name="KnightDL" type="Sprite2D" parent="Visual"]
-position = Vector2(-12, -7)
+position = Vector2(-11.5, -63.5)
 texture = ExtResource("1_n3ip5")
 hframes = 2
 region_rect = Rect2(-370.5, -119.5, 896, 430)
 
 [node name="KnightDR" type="Sprite2D" parent="Visual"]
-position = Vector2(12, -7)
+position = Vector2(12.5, -63.5)
 texture = ExtResource("1_n3ip5")
 flip_h = true
 hframes = 2
@@ -126,8 +125,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 27)
-shape = SubResource("CapsuleShape2D_xb5an")
+shape = SubResource("CircleShape2D_jexue")
 
 [connection signal="dead" from="." to="Visual/AnimationPlayer" method="pause"]
 [connection signal="direction" from="." to="Visual" method="set_direction"]
