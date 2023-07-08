@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlhu5q44kndii"]
+[gd_scene load_steps=11 format=3 uid="uid://dlhu5q44kndii"]
 
 [ext_resource type="Texture2D" uid="uid://d0de3ld66de72" path="res://Levels/Stage.png" id="1_r0l63"]
 [ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_atyay"]
@@ -14,6 +14,21 @@ polygon = PackedVector2Array(-230, 1102, -257, 1029, -322, 998, -551, 992, -694,
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m86o4"]
 polygon = PackedVector2Array(274, 1104, 287, 1057, 303, 1035, 342, 1023, 598, 997, 776, 1018, 860, 1005, 912, 924, 941, 830, 963, 749, 976, 536, 967, 439, 979, 318, 977, 254, 1005, 205, 1035, 177, 1097, 159, 1105, 1102)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmoxe"]
+distance = -1100.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nm6f6"]
+normal = Vector2(1, 0)
+distance = -1100.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sbdu2"]
+normal = Vector2(-1, 0)
+distance = -1100.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hd8wg"]
+normal = Vector2(0, 1)
+distance = -1100.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -48,6 +63,25 @@ texture = ExtResource("1_r0l63")
 
 [node name="DragonBody" parent="." instance=ExtResource("2_atyay")]
 position = Vector2(-5, 13)
+collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="DragonBody"]
-limit_left = 10
+limit_left = -1100
+limit_top = -1100
+limit_right = 1100
+limit_bottom = 1100
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_vmoxe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_nm6f6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_sbdu2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_hd8wg")
