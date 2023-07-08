@@ -1,9 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://bofd4vplky8hj"]
+[gd_scene load_steps=9 format=3 uid="uid://bofd4vplky8hj"]
 
 [ext_resource type="Script" path="res://Knight/Visual.gd" id="1_7l0md"]
 [ext_resource type="Texture2D" uid="uid://dh7h50p0n3yl0" path="res://Knight/Knight.png" id="1_n3ip5"]
 [ext_resource type="Script" path="res://Knight/Knight.gd" id="1_yy4i1"]
 [ext_resource type="Texture2D" uid="uid://r1eskgingusa" path="res://Knight/shield.png" id="2_vi5yf"]
+
+[sub_resource type="Animation" id="Animation_48aqn"]
+resource_name = "Movement"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 26), Vector2(0, 0), Vector2(0, -33), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.73), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eax5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqvhk"]
+_data = {
+"Movement": SubResource("Animation_48aqn"),
+"RESET": SubResource("Animation_eax5u")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb5an"]
 radius = 37.0
@@ -16,6 +78,7 @@ script = ExtResource("1_yy4i1")
 script = ExtResource("1_7l0md")
 
 [node name="KnightDL" type="Sprite2D" parent="Visual"]
+visible = false
 position = Vector2(-12, -7)
 texture = ExtResource("1_n3ip5")
 hframes = 2
@@ -30,6 +93,7 @@ region_rect = Rect2(-370.5, -119.5, 896, 430)
 
 [node name="Shield" type="Sprite2D" parent="Visual"]
 visible = false
+position = Vector2(13, 6)
 texture = ExtResource("2_vi5yf")
 
 [node name="KnightUL" type="Sprite2D" parent="Visual"]
@@ -48,6 +112,11 @@ texture = ExtResource("1_n3ip5")
 hframes = 2
 frame = 1
 region_rect = Rect2(-370.5, -119.5, 896, 430)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+libraries = {
+"": SubResource("AnimationLibrary_cqvhk")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xb5an")
