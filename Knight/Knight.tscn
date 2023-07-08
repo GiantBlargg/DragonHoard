@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bofd4vplky8hj"]
+
+[ext_resource type="Script" path="res://Knight/Visual.gd" id="1_7l0md"]
+[ext_resource type="Texture2D" uid="uid://dh7h50p0n3yl0" path="res://Knight/Knight.png" id="1_n3ip5"]
+[ext_resource type="Script" path="res://Knight/Knight.gd" id="1_yy4i1"]
+[ext_resource type="Texture2D" uid="uid://r1eskgingusa" path="res://Knight/shield.png" id="2_vi5yf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb5an"]
+radius = 37.0
+height = 210.0
+
+[node name="Knight" type="CharacterBody2D"]
+script = ExtResource("1_yy4i1")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("1_7l0md")
+
+[node name="KnightDL" type="Sprite2D" parent="Visual"]
+position = Vector2(-12, -7)
+texture = ExtResource("1_n3ip5")
+hframes = 2
+region_rect = Rect2(-370.5, -119.5, 896, 430)
+
+[node name="KnightDR" type="Sprite2D" parent="Visual"]
+position = Vector2(12, -7)
+texture = ExtResource("1_n3ip5")
+flip_h = true
+hframes = 2
+region_rect = Rect2(-370.5, -119.5, 896, 430)
+
+[node name="Shield" type="Sprite2D" parent="Visual"]
+visible = false
+texture = ExtResource("2_vi5yf")
+
+[node name="KnightUL" type="Sprite2D" parent="Visual"]
+visible = false
+position = Vector2(-12, -7)
+texture = ExtResource("1_n3ip5")
+flip_h = true
+hframes = 2
+frame = 1
+region_rect = Rect2(-370.5, -119.5, 896, 430)
+
+[node name="KnightUR" type="Sprite2D" parent="Visual"]
+visible = false
+position = Vector2(12, -7)
+texture = ExtResource("1_n3ip5")
+hframes = 2
+frame = 1
+region_rect = Rect2(-370.5, -119.5, 896, 430)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xb5an")
+
+[connection signal="angle" from="." to="Visual" method="set_angle"]
