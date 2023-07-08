@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0de3ld66de72" path="res://Levels/Stage.png" id="1_r0l63"]
 [ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_atyay"]
 [ext_resource type="PackedScene" uid="uid://bofd4vplky8hj" path="res://Knight/Knight.tscn" id="3_22ise"]
-[ext_resource type="PackedScene" uid="uid://banugdmpbpjwe" path="res://Knight/Slime.tscn" id="4_nkmbs"]
+[ext_resource type="PackedScene" uid="uid://b3tknc376el6t" path="res://Knight/Slime.tscn" id="4_nkmbs"]
 [ext_resource type="AudioStream" uid="uid://4e5lejl6shwu" path="res://Levels/Strength of the Titans.mp3" id="5_2r8h2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qhkmg"]
