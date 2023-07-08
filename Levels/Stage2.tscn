@@ -1,0 +1,121 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3ymgk347dyqy"]
+
+[ext_resource type="Texture2D" uid="uid://cxcdiuucu8n15" path="res://Levels/Stage2.png" id="1_30s64"]
+[ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_1brl2"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_odq3i"]
+polygon = PackedVector2Array(-2007, -724, -1882, -749, -1816, -800, -1797, -902, -1792, -1022, -1792, -1101, -1769, -1165, -1730, -1206, -1659, -1263, -1410, -1312, -1301, -1305, -1162, -1312, -1062, -1321, -974, -1322, -729, -1282, -670, -1284, -608, -1270, -370, -1281, -263, -1301, -196, -1330, -165, -1374, -153, -1437, -151, -1506, -2006, -1503)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nqjac"]
+polygon = PackedVector2Array(311, -1508, 319, -1397, 355, -1310, 458, -1295, 606, -1308, 717, -1302, 795, -1279, 1113, -1295, 1258, -1285, 1338, -1271, 1434, -1258, 1486, -1172, 1609, -1112, 1656, -1057, 1663, -985, 1640, -933, 1782, -606, 1766, -514, 1765, -366, 1789, -199, 1841, -147, 1930, -130, 2002, -124, 2001, -1508)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kk5ww"]
+polygon = PackedVector2Array(-2006, 899, -1918, 929, -1790, 974, -1749, 1029, -1657, 1158, -1626, 1250, -1587, 1306, -1565, 1366, -1456, 1384, -1330, 1384, -1237, 1369, -935, 1313, -769, 1312, -638, 1326, -510, 1328, -398, 1366, -360, 1441, -347, 1499, -2006, 1502)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jt7ox"]
+polygon = PackedVector2Array(-6, 1501, 19, 1398, 75, 1368, 162, 1354, 239, 1350, 524, 1309, 639, 1333, 782, 1339, 1019, 1319, 1214, 1321, 1297, 1348, 1449, 1315, 1651, 1291, 1687, 1245, 1699, 1192, 1738, 1129, 1752, 1058, 1771, 981, 1773, 796, 1795, 643, 1754, 448, 1754, 359, 1789, 204, 1957, 118, 2002, 117, 2005, 1505)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3y06l"]
+polygon = PackedVector2Array(-2003, 674, -1941, 659, -1876, 637, -1840, 590, -1812, 473, -1788, 234, -1782, 65, -1785, -62, -1772, -108, -1743, -151, -1685, -179, -1519, -182, -1251, -172, -1028, -153, -943, -163, -915, -163, -870, -185, -853, -213, -849, -248, -860, -281, -888, -319, -938, -351, -1105, -389, -1398, -455, -1496, -467, -1719, -489, -2004, -506)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jlqqq"]
+polygon = PackedVector2Array(-261, -1027, -292, -1016, -325, -984, -345, -942, -353, -878, -356, -805, -333, -728, -300, -679, -265, -653, -228, -651, -199, -665, -149, -764, -143, -826, -153, -884, -174, -947, -202, -993, -232, -1018)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_231ce"]
+polygon = PackedVector2Array(-612, 476, -583, 411, -505, 362, -435, 342, -317, 304, -209, 258, -148, 214, -110, 169, 6, 67, 43, 36, 121, -15, 175, -60, 227, -130, 303, -360, 339, -449, 431, -530, 504, -565, 593, -589, 655, -591, 700, -570, 718, -535, 704, -475, 566, -315, 551, -280, 518, -58, 488, 7, 434, 92, 332, 179, 186, 271, 52, 350, -113, 486, -244, 562, -426, 612, -503, 609, -582, 570, -605, 535)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c06cw"]
+polygon = PackedVector2Array(1330, 862, 1323, 796, 1313, 760, 1288, 714, 1259, 681, 1201, 625, 1132, 591, 1094, 591, 1057, 606, 1033, 628, 1023, 666, 1026, 709, 1040, 763, 1082, 837, 1138, 888, 1219, 930, 1270, 938, 1299, 929, 1321, 904)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4f2wl"]
+distance = -1500.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yvv7w"]
+normal = Vector2(0, 1)
+distance = -1500.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wvvnw"]
+normal = Vector2(1, 0)
+distance = -2000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hknsi"]
+normal = Vector2(-1, 0)
+distance = -2000.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Stage2" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_30s64")
+
+[node name="TLWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-2007, -724, -1882, -749, -1816, -800, -1797, -902, -1792, -1022, -1792, -1101, -1769, -1165, -1730, -1206, -1659, -1263, -1410, -1312, -1301, -1305, -1162, -1312, -1062, -1321, -974, -1322, -729, -1282, -670, -1284, -608, -1270, -370, -1281, -263, -1301, -196, -1330, -165, -1374, -153, -1437, -151, -1506, -2006, -1503)
+
+[node name="TLWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_odq3i")
+
+[node name="TRWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(311, -1508, 319, -1397, 355, -1310, 458, -1295, 606, -1308, 717, -1302, 795, -1279, 1113, -1295, 1258, -1285, 1338, -1271, 1434, -1258, 1486, -1172, 1609, -1112, 1656, -1057, 1663, -985, 1640, -933, 1782, -606, 1766, -514, 1765, -366, 1789, -199, 1841, -147, 1930, -130, 2002, -124, 2001, -1508)
+
+[node name="TRWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_nqjac")
+
+[node name="BLWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-2006, 899, -1918, 929, -1790, 974, -1749, 1029, -1657, 1158, -1626, 1250, -1587, 1306, -1565, 1366, -1456, 1384, -1330, 1384, -1237, 1369, -935, 1313, -769, 1312, -638, 1326, -510, 1328, -398, 1366, -360, 1441, -347, 1499, -2006, 1502)
+
+[node name="BLWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_kk5ww")
+
+[node name="BRWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-6, 1501, 19, 1398, 75, 1368, 162, 1354, 239, 1350, 524, 1309, 639, 1333, 782, 1339, 1019, 1319, 1214, 1321, 1297, 1348, 1449, 1315, 1651, 1291, 1687, 1245, 1699, 1192, 1738, 1129, 1752, 1058, 1771, 981, 1773, 796, 1795, 643, 1754, 448, 1754, 359, 1789, 204, 1957, 118, 2002, 117, 2005, 1505)
+
+[node name="BRWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_jt7ox")
+
+[node name="LMidWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-2003, 674, -1941, 659, -1876, 637, -1840, 590, -1812, 473, -1788, 234, -1782, 65, -1785, -62, -1772, -108, -1743, -151, -1685, -179, -1519, -182, -1251, -172, -1028, -153, -943, -163, -915, -163, -870, -185, -853, -213, -849, -248, -860, -281, -888, -319, -938, -351, -1105, -389, -1398, -455, -1496, -467, -1719, -489, -2004, -506)
+
+[node name="LMidWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_3y06l")
+
+[node name="TCWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-261, -1027, -292, -1016, -325, -984, -345, -942, -353, -878, -356, -805, -333, -728, -300, -679, -265, -653, -228, -651, -199, -665, -149, -764, -143, -826, -153, -884, -174, -947, -202, -993, -232, -1018)
+
+[node name="TCWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_jlqqq")
+
+[node name="MCWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-612, 476, -583, 411, -505, 362, -435, 342, -317, 304, -209, 258, -148, 214, -110, 169, 6, 67, 43, 36, 121, -15, 175, -60, 227, -130, 303, -360, 339, -449, 431, -530, 504, -565, 593, -589, 655, -591, 700, -570, 718, -535, 704, -475, 566, -315, 551, -280, 518, -58, 488, 7, 434, 92, 332, 179, 186, 271, 52, 350, -113, 486, -244, 562, -426, 612, -503, 609, -582, 570, -605, 535)
+
+[node name="MCWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_231ce")
+
+[node name="BCWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1330, 862, 1323, 796, 1313, 760, 1288, 714, 1259, 681, 1201, 625, 1132, 591, 1094, 591, 1057, 606, 1033, 628, 1023, 666, 1026, 709, 1040, 763, 1082, 837, 1138, 888, 1219, 930, 1270, 938, 1299, 929, 1321, 904)
+
+[node name="BCWallLight" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_c06cw")
+
+[node name="DragonBody" parent="." instance=ExtResource("2_1brl2")]
+position = Vector2(-127, -113)
+
+[node name="Camera2D" type="Camera2D" parent="DragonBody"]
+limit_left = -2000
+limit_top = -1500
+limit_right = 2000
+limit_bottom = 1500
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="BottomBound" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_4f2wl")
+
+[node name="TopBound" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_yvv7w")
+
+[node name="LeftBound" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_wvvnw")
+
+[node name="RightBound" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_hknsi")
