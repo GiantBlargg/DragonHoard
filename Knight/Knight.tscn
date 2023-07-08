@@ -71,7 +71,7 @@ _data = {
 radius = 37.0
 height = 148.0
 
-[node name="Knight" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
+[node name="Knight" type="CharacterBody2D"]
 z_index = 2
 y_sort_enabled = true
 collision_layer = 8
@@ -80,7 +80,6 @@ script = ExtResource("1_yy4i1")
 wait_time = 0.1
 jump_time = 0.2
 jump_distance = 100.0
-anim = NodePath("Visual/AnimationPlayer")
 
 [node name="Visual" type="Node2D" parent="."]
 script = ExtResource("1_7l0md")
@@ -121,6 +120,7 @@ frame = 1
 region_rect = Rect2(-370.5, -119.5, 896, 430)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+autoplay = "Movement"
 libraries = {
 "": SubResource("AnimationLibrary_cqvhk")
 }
@@ -129,5 +129,6 @@ libraries = {
 position = Vector2(1, 27)
 shape = SubResource("CapsuleShape2D_xb5an")
 
+[connection signal="dead" from="." to="Visual/AnimationPlayer" method="pause"]
 [connection signal="direction" from="." to="Visual" method="set_direction"]
 [connection signal="timing" from="." to="Visual" method="set_anim_speed"]

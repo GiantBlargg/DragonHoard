@@ -90,3 +90,4 @@ Turn_Right={
 2d_physics/layer_3="Dragon"
 2d_physics/layer_4="Knights"
 2d_physics/layer_5="Fire"
+2d_physics/layer_6="Swipe"
