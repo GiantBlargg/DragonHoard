@@ -7,9 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mi6pf"]
 radius = 117.273
 
-[node name="DragonBody" type="CharacterBody2D"]
+[node name="DragonBody" type="CharacterBody2D" groups=["Dragon"]]
+z_index = 5
+z_as_relative = false
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 script = ExtResource("1_fchby")
 turn_speed = 4.0
 forward_limit = 0.349066
