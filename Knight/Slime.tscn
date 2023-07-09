@@ -76,6 +76,7 @@ script = ExtResource("1_uvoib")
 wait_time = 0.0
 jump_time = 0.0
 type = 2
+damage = 0.1
 
 [node name="Node2D" type="Node2D" parent="."]
 

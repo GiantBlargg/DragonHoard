@@ -50,6 +50,7 @@ normal = Vector2(-1, 0)
 distance = -2000.0
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

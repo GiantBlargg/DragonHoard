@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://d0de3ld66de72" path="res://Levels/Stage.png" id="1_r0l63"]
 [ext_resource type="PackedScene" uid="uid://df47tasppgtwm" path="res://Dragon/DragonBody.tscn" id="2_atyay"]
-[ext_resource type="PackedScene" uid="uid://bofd4vplky8hj" path="res://Knight/Knight.tscn" id="3_22ise"]
 [ext_resource type="PackedScene" uid="uid://b3tknc376el6t" path="res://Knight/Slime.tscn" id="4_nkmbs"]
 [ext_resource type="AudioStream" uid="uid://4e5lejl6shwu" path="res://Levels/Strength of the Titans.mp3" id="5_2r8h2"]
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="5_qdhxv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qhkmg"]
 polygon = PackedVector2Array(-1109, -244, -1016, -271, -987, -335, -977, -477, -974, -669, -940, -787, -862, -867, -772, -914, -609, -932, -468, -958, -366, -976, -247, -979, -213, -1014, -193, -1103, -1110, -1103)
@@ -33,7 +33,7 @@ distance = -1100.0
 normal = Vector2(0, 1)
 distance = -1100.0
 
-[node name="Node2D" type="Node2D"]
+[node name="root" type="Node2D"]
 y_sort_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -89,54 +89,6 @@ shape = SubResource("WorldBoundaryShape2D_sbdu2")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("WorldBoundaryShape2D_hd8wg")
 
-[node name="Knight" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-1153, -169)
-
-[node name="Knight2" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-1244, -177)
-
-[node name="Knight3" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-1249, 3)
-
-[node name="Knight4" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-1152, 22)
-
-[node name="Knight5" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-179, 1194)
-
-[node name="Knight6" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-57, 1198)
-
-[node name="Knight7" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(95, 1207)
-
-[node name="Knight8" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(235, 1201)
-
-[node name="Knight9" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(1299, 54)
-
-[node name="Knight10" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(1296, -104)
-
-[node name="Knight11" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(1168, -106)
-
-[node name="Knight12" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(1167, 56)
-
-[node name="Knight13" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-159, -1222)
-
-[node name="Knight14" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(-59, -1226)
-
-[node name="Knight15" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(45, -1226)
-
-[node name="Knight16" parent="." instance=ExtResource("3_22ise")]
-position = Vector2(153, -1218)
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_nkmbs")]
 position = Vector2(-613, -677)
 
@@ -147,3 +99,35 @@ position = Vector2(608, -722)
 stream = ExtResource("5_2r8h2")
 volume_db = -5.0
 autoplay = true
+
+[node name="Entrances" type="Node2D" parent="." node_paths=PackedStringArray("entrances")]
+script = ExtResource("5_qdhxv")
+entrances = [NodePath("Node2D"), NodePath("Node2D2"), NodePath("Node2D3"), NodePath("Node2D4"), NodePath("Node2D5"), NodePath("Node2D6"), NodePath("Node2D7"), NodePath("Node2D8")]
+
+[node name="Node2D" type="Node2D" parent="Entrances"]
+position = Vector2(-1163, -155)
+
+[node name="Node2D2" type="Node2D" parent="Entrances"]
+position = Vector2(-1159, 47)
+
+[node name="Node2D3" type="Node2D" parent="Entrances"]
+position = Vector2(-106, 1154)
+
+[node name="Node2D4" type="Node2D" parent="Entrances"]
+position = Vector2(112, 1147)
+
+[node name="Node2D5" type="Node2D" parent="Entrances"]
+position = Vector2(1172, 96)
+
+[node name="Node2D6" type="Node2D" parent="Entrances"]
+position = Vector2(1168, -93)
+
+[node name="Node2D7" type="Node2D" parent="Entrances"]
+position = Vector2(151, -1189)
+
+[node name="Node2D8" type="Node2D" parent="Entrances"]
+position = Vector2(-76, -1191)
+
+[node name="Timer" type="Timer" parent="Entrances"]
+process_callback = 0
+wait_time = 5.0

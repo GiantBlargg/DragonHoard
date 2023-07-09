@@ -3,13 +3,20 @@ extends CharacterBody2D
 @export var speed: float = 500
 @export var turn_speed:float = PI
 @export_range(0, 180, 0.1, "radians") var forward_limit: float = PI/4
-@export var health = 100
+@export var max_health = 100
+var health
 
-signal health_changed(amount:float)
+signal health_changed(amount:float,max:float)
+signal die()
+
+func _ready():
+	health=max_health
 
 func hurt(damage):
 	health -= damage
-	health_changed.emit(health)
+	health_changed.emit(health,max_health)
+	if health <= 0:
+		die.emit()
 
 func _physics_process(delta):
 	

@@ -38,9 +38,6 @@ angle_min = -180.0
 angle_max = 180.0
 scale_curve = SubResource("CurveTexture_hu2bg")
 color_ramp = SubResource("GradientTexture1D_xarpe")
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
 
 [node name="DragonHead" type="Node2D"]
 

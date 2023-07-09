@@ -1,12 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://df47tasppgtwm"]
+[gd_scene load_steps=13 format=3 uid="uid://df47tasppgtwm"]
 
 [ext_resource type="Script" path="res://Dragon/DragonBody.gd" id="1_fchby"]
 [ext_resource type="Texture2D" uid="uid://gn3hb46ba70o" path="res://Dragon/dragonParts.png" id="2_vgwjv"]
 [ext_resource type="PackedScene" uid="uid://dgi8kqqh3ldie" path="res://Dragon/DragonHead.tscn" id="3_ph38i"]
 [ext_resource type="PackedScene" uid="uid://did0on5ytd3pj" path="res://Dragon/DragonArm.tscn" id="4_ms3j4"]
+[ext_resource type="Texture2D" uid="uid://bxjy13cuqx20l" path="res://Menu/GameOver.png" id="5_wujav"]
+[ext_resource type="Texture2D" uid="uid://3k04s3ilu777" path="res://Dragon/Healthbar.png" id="6_rr5sj"]
+[ext_resource type="Script" path="res://Dragon/HealthBar.gd" id="6_ytp4s"]
+[ext_resource type="Texture2D" uid="uid://bdep42b2dt8kr" path="res://Dragon/Health.png" id="7_xss0j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mi6pf"]
 radius = 117.273
+
+[sub_resource type="Animation" id="Animation_g6mds"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2qjvs"]
+resource_name = "health"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(110, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.99298e-05, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3ud8"]
+_data = {
+"RESET": SubResource("Animation_g6mds"),
+"health": SubResource("Animation_2qjvs")
+}
 
 [node name="DragonBody" type="CharacterBody2D" groups=["Dragon"]]
 z_index = 5
@@ -31,3 +95,42 @@ shape = SubResource("CircleShape2D_mi6pf")
 
 [node name="DragonHead" parent="." instance=ExtResource("3_ph38i")]
 position = Vector2(3, -170)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="Sprite2D" parent="UI/Control"]
+visible = false
+z_index = 15
+z_as_relative = false
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("5_wujav")
+
+[node name="Node2D" type="Node2D" parent="UI/Control"]
+position = Vector2(865, -555)
+script = ExtResource("6_ytp4s")
+
+[node name="Healthbar" type="Sprite2D" parent="UI/Control/Node2D"]
+texture = ExtResource("6_rr5sj")
+
+[node name="Health" type="Sprite2D" parent="UI/Control/Node2D"]
+texture = ExtResource("7_xss0j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Control/Node2D"]
+autoplay = "health"
+playback_process_mode = 2
+libraries = {
+"": SubResource("AnimationLibrary_w3ud8")
+}
+
+[connection signal="die" from="." to="UI/Control/GameOver" method="set_visible" binds= [true]]
+[connection signal="health_changed" from="." to="UI/Control/Node2D" method="set_health"]
