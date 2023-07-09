@@ -2,7 +2,7 @@ extends Area2D
 
 signal swipe
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("Swipe"):
 		swipe.emit()
 		var targets = get_overlapping_bodies()

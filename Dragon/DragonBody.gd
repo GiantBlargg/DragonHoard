@@ -3,10 +3,13 @@ extends CharacterBody2D
 @export var speed: float = 500
 @export var turn_speed:float = PI
 @export_range(0, 180, 0.1, "radians") var forward_limit: float = PI/4
+@export var health = 100
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+signal health_changed(amount:float)
 
+func hurt(damage):
+	health -= damage
+	health_changed.emit(health)
 
 func _physics_process(delta):
 	

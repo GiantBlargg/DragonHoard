@@ -11,6 +11,7 @@ signal dead
 @export var health: float = 100
 enum KnightType {Regular, Shield, Slime}
 @export var type: KnightType = KnightType.Regular
+@export var damage: float = 5
 
 var timer: float = 0
 var dir: Vector2 = Vector2.RIGHT
@@ -52,6 +53,12 @@ func _physics_process(delta):
 			velocity = dir * (jump_distance / jump_time)
 	
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i).get_collider()
+		if collision.has_method("hurt"):
+			dir = -dir
+			collision.hurt(damage)
 
 func swipe():
 	if type == KnightType.Slime:
