@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ky0u1dj524e"]
+
+[ext_resource type="Texture2D" uid="uid://bufqbwlx3q4cu" path="res://Menu/MenuBG.png" id="1_8o8ht"]
+[ext_resource type="Script" path="res://Menu/Menu.gd" id="1_15jt4"]
+[ext_resource type="Texture2D" uid="uid://kpjl7k8exyv3" path="res://Menu/title.png" id="2_7toun"]
+[ext_resource type="Texture2D" uid="uid://c0n32wepb8vcw" path="res://Menu/Level1Button.png" id="3_j0ai4"]
+[ext_resource type="Texture2D" uid="uid://dmsx7e2p1ac0" path="res://Menu/Level2Button.png" id="4_3f7dl"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.667, 1.667)
+script = ExtResource("1_15jt4")
+
+[node name="MenuBg" type="Sprite2D" parent="."]
+texture = ExtResource("1_8o8ht")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(0, -75)
+texture = ExtResource("2_7toun")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 146.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_j0ai4")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 340.0
+offset_bottom = 196.0
+texture_normal = ExtResource("4_3f7dl")
+
+[connection signal="pressed" from="TextureButton" to="." method="load1"]
+[connection signal="pressed" from="TextureButton2" to="." method="load2"]
